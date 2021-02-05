@@ -1,0 +1,7 @@
+== Suppressed Messages ==
+
+# No schematrons available for Logical Models
+The link 'StructureDefinition-smartVaccinationCard.sch' for "Schematron" cannot be resolved
+	The link 'StructureDefinition-vaccinationCertificate.sch' for "Schematron" cannot be resolved
+
+
