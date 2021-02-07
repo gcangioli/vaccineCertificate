@@ -242,7 +242,7 @@ Example: 1/2"/>
 			</type>
 			<mapping>
 				<identity value="fhir-ig"/>
-				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').occuranceDateTime"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').occurrenceDatetime"/>
 			</mapping>
 		</element>
 		<element id="vaccinationCertificate.vaccination.administeringCentre">
@@ -270,7 +270,7 @@ Example: 1/2"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="Practictioner"/>
+				<code value="Practitioner"/>
 			</type>
 			<mapping>
 				<identity value="fhir-ig"/>

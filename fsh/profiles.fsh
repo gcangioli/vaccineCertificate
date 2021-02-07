@@ -42,7 +42,7 @@ Description: "This profile defines how to represent a vaccination certificate in
 * identifier MS
 * status MS
 * type only $CodeableConcept-uv-ips
-* type = $loinc#11369-6
+* type = $loinc#82593-5  
 * type MS
 * type ^short = "Kind of composition (\"Smart Vaccination Card\")"
 * type ^definition = "Specifies that this composition refers to a Smart Vaccination Card (Loinc \"11369-6\")"
@@ -80,10 +80,10 @@ Description: "This profile defines how to represent a vaccination certificate in
 * section ^slicing.rules = #open
 * section ^short = "Sections composing the SVC"
 * section ^definition = "The root of the sections that make up the SVC composition."
-* section contains   sectionImmunizations ..1 MS
+* section contains   sectionImmunizations 1..1 MS
  
 
-* section[sectionImmunizations] ^short = "S Immunizations Section"
+* section[sectionImmunizations] ^short = "Immunizations Section"
 * section[sectionImmunizations] ^definition = "The Immunizations Section lists the relevant vaccinations taken by a patient's."
 * section[sectionImmunizations].title 1.. MS
 * section[sectionImmunizations].code 1.. MS
@@ -98,6 +98,7 @@ Description: "This profile defines how to represent a vaccination certificate in
 * section[sectionImmunizations].entry ^short = "Patient's immunization status and pertinent history."
 * section[sectionImmunizations].entry ^definition = "It defines the patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\nIt may contain the entire immunization history that is relevant to the period of time being summarized. This entry shall be used to document that no information about immunizations is available, or that no immunizations are known."
 * section[sectionImmunizations].entry contains immunization 1.. MS
+* section[sectionImmunizations].entry[immunization] 1..
 * section[sectionImmunizations].entry[immunization] only Reference(ImmunizationSvc)
 * section[sectionImmunizations].emptyReason ..0
 * section[sectionImmunizations].emptyReason ^mustSupport = false
@@ -139,18 +140,18 @@ Description: "This profile defines how to represent a vaccination certificate in
 * . MS
 * . ^short = "Smart Vaccination Card Bundle"
 * . ^definition = "Smart Vaccination Card Bundle. \r\nA composition is a set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. \r\nWhile a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained."
-* identifier MS
+* identifier 1.. MS
 * identifier.period MS
 * type = #document
 * type MS
 * timestamp MS
 * entry 2.. MS
 * entry.fullUrl 1.. MS
-* entry ^slicing.discriminator[0].type = #profile
-* entry ^slicing.discriminator[0].path = "$this.resolve()"
+* entry ^slicing.discriminator[0].type = #type
+* entry ^slicing.discriminator[0].path = "resource"
 * entry ^slicing.rules = #open
-* entry ^short = "Enrties to be included in this bundle."
-* entry ^definition = "It lists and describes clinical problems or conditions currently being monitored for the patient.  This entry shall be used to document that no information about problems is available, or that no relevant problems are known."
+* entry ^short = "Entries to be included in this bundle."
+* entry ^definition = "It lists and describes the types of entries allowed for this document."
 
 * entry contains 
 	composition  1..1 MS and  

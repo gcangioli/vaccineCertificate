@@ -59,6 +59,7 @@
       {
         "id": "Bundle.identifier",
         "path": "Bundle.identifier",
+        "min": 1,
         "mustSupport": true
       },
       {
@@ -83,14 +84,14 @@
         "slicing": {
           "discriminator": [
             {
-              "type": "profile",
-              "path": "$this.resolve()"
+              "type": "type",
+              "path": "resource"
             }
           ],
           "rules": "open"
         },
-        "short": "Enrties to be included in this bundle.",
-        "definition": "It lists and describes clinical problems or conditions currently being monitored for the patient.  This entry shall be used to document that no information about problems is available, or that no relevant problems are known.",
+        "short": "Entries to be included in this bundle.",
+        "definition": "It lists and describes the types of entries allowed for this document.",
         "min": 2,
         "mustSupport": true
       },
