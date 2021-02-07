@@ -97,7 +97,7 @@ Description: "This profile defines how to represent a vaccination certificate in
 * section[sectionImmunizations].entry ^slicing.rules = #open
 * section[sectionImmunizations].entry ^short = "Patient's immunization status and pertinent history."
 * section[sectionImmunizations].entry ^definition = "It defines the patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\nIt may contain the entire immunization history that is relevant to the period of time being summarized. This entry shall be used to document that no information about immunizations is available, or that no immunizations are known."
-* section[sectionImmunizations].entry contains immunization 1.. MS
+* section[sectionImmunizations].entry contains immunization 1.. MS and immunizationRecommendation 0.. MS
 * section[sectionImmunizations].entry[immunization] 1..
 * section[sectionImmunizations].entry[immunization] only Reference(ImmunizationSvc)
 * section[sectionImmunizations].emptyReason ..0
@@ -105,6 +105,12 @@ Description: "This profile defines how to represent a vaccination certificate in
 * section[sectionImmunizations].section ..0
 * section[sectionImmunizations].section ^mustSupport = false
 
+* section[sectionImmunizations].entry[immunizationRecommendation] 0..
+* section[sectionImmunizations].entry[immunizationRecommendation] only Reference(ImmunizationRecommendationSvc)
+* section[sectionImmunizations].emptyReason ..0
+* section[sectionImmunizations].emptyReason ^mustSupport = false
+* section[sectionImmunizations].section ..0
+* section[sectionImmunizations].section ^mustSupport = false
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Profile:  ImmunizationSvc
@@ -120,12 +126,45 @@ Description: "This profile defines how to represent Immunizations in FHIR for bu
 * patient MS
 * occurrenceDateTime MS
 * location MS // check is really needed
+* location only Reference(LocationSvc)
 * manufacturer MS
 * lotNumber MS
 * performer MS
 * protocolApplied.targetDisease MS
 * protocolApplied.doseNumber[x] MS
 * protocolApplied.seriesDoses[x] MS
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Profile:  ImmunizationRecommendationSvc
+Parent:   ImmunizationRecommendation
+Id:       ImmunizationRecommendation-svc
+Title:    "ImmunizationRecommendation (SVC)"
+Description: "This profile defines how to represent Immunization Recommandations in FHIR for building a Smart vaccination Card."
+
+//-------------------------------------------------------------------------------------------
+
+* date MS
+* patient MS
+
+* recommendation.dateCriterion ^slicing.discriminator[0].type = #pattern
+* recommendation.dateCriterion ^slicing.discriminator[0].path = "code"
+* recommendation.dateCriterion ^slicing.rules = #open
+* recommendation.dateCriterion contains nextDose ..1
+* recommendation.dateCriterion[nextDose].code = $loinc#30980-7
+* recommendation.dateCriterion[nextDose].value 1..1
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Profile:  LocationSvc
+Parent:   Location
+Id:       Location-svc
+Title:    "Location (SVC)"
+Description: "This profile defines how to represent Location in FHIR for building a Smart vaccination Card. This is used to describe optionally where the vaccination occured"
+
+//-------------------------------------------------------------------------------------------
+
+* address.country 1..1 MS
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Profile:  BundleSvc

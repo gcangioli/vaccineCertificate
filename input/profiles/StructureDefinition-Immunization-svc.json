@@ -57,6 +57,14 @@
       {
         "id": "Immunization.location",
         "path": "Immunization.location",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.eu/fhir/poc/svc/StructureDefinition/Location-svc"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {

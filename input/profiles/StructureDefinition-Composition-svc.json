@@ -286,6 +286,22 @@
         "mustSupport": true
       },
       {
+        "id": "Composition.section:sectionImmunizations.entry:immunizationRecommendation",
+        "path": "Composition.section.entry",
+        "sliceName": "immunizationRecommendation",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.eu/fhir/poc/svc/StructureDefinition/ImmunizationRecommendation-svc"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
         "id": "Composition.section:sectionImmunizations.emptyReason",
         "path": "Composition.section.emptyReason",
         "max": "0",

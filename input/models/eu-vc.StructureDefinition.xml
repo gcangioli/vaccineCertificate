@@ -288,7 +288,7 @@ Example: 1/2"/>
 			</type>
 			<mapping>
 				<identity value="fhir-ig"/>
-				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').location"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').location.address.country"/>
 			</mapping>
 		</element>
 		<element id="vaccinationCertificate.vaccination.dateNextDose">
