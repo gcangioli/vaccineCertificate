@@ -127,7 +127,7 @@
         "id": "Bundle.entry:immunization",
         "path": "Bundle.entry",
         "sliceName": "immunization",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "mustSupport": true
       },
@@ -140,6 +140,28 @@
             "code": "Immunization",
             "profile": [
               "http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:immunizationRecommendation",
+        "path": "Bundle.entry",
+        "sliceName": "immunizationRecommendation",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:immunizationRecommendation.resource",
+        "path": "Bundle.entry.resource",
+        "min": 1,
+        "type": [
+          {
+            "code": "ImmunizationRecommendation",
+            "profile": [
+              "http://hl7.eu/fhir/poc/svc/StructureDefinition/ImmunizationRecommendation-svc"
             ]
           }
         ],

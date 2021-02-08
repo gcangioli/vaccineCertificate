@@ -110,11 +110,6 @@
         "mustSupport": true
       },
       {
-        "id": "Composition.encounter",
-        "path": "Composition.encounter",
-        "mustSupport": true
-      },
-      {
         "id": "Composition.date",
         "path": "Composition.date",
         "mustSupport": true
@@ -123,19 +118,13 @@
         "id": "Composition.author",
         "path": "Composition.author",
         "short": "Who and/or what authored the SVC",
-        "definition": "Identifies who is responsible for the information in the SVC, not necessarily who typed it in.",
-        "mustSupport": true
+        "definition": "Identifies who is responsible for the information in the SVC, not necessarily who typed it in."
       },
       {
         "id": "Composition.title",
         "path": "Composition.title",
         "short": "Smart Vaccination Card",
         "definition": "Official human-readable label for the composition.\r\n\r\nFor this document should be \"Smart Vaccination Card\" or any equivalent translation",
-        "mustSupport": true
-      },
-      {
-        "id": "Composition.confidentiality",
-        "path": "Composition.confidentiality",
         "mustSupport": true
       },
       {
@@ -156,38 +145,6 @@
       {
         "id": "Composition.attester.party",
         "path": "Composition.attester.party",
-        "mustSupport": true
-      },
-      {
-        "id": "Composition.custodian",
-        "path": "Composition.custodian",
-        "mustSupport": true
-      },
-      {
-        "id": "Composition.relatesTo",
-        "path": "Composition.relatesTo",
-        "mustSupport": true
-      },
-      {
-        "id": "Composition.relatesTo.code",
-        "path": "Composition.relatesTo.code",
-        "mustSupport": true
-      },
-      {
-        "id": "Composition.relatesTo.target[x]",
-        "path": "Composition.relatesTo.target[x]",
-        "type": [
-          {
-            "code": "Identifier"
-          },
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Composition",
-              "http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc"
-            ]
-          }
-        ],
         "mustSupport": true
       },
       {
@@ -273,7 +230,7 @@
         "id": "Composition.section:sectionImmunizations.entry:immunization",
         "path": "Composition.section.entry",
         "sliceName": "immunization",
-        "min": 1,
+        "min": 0,
         "max": "*",
         "type": [
           {

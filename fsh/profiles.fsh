@@ -50,26 +50,16 @@ Description: "This profile defines how to represent a vaccination certificate in
 * subject MS
 * subject ^definition = "Who or what the composition is about. \r\nIn general a composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).\r\nFor the IPS the subject is always the patient."
 * subject.reference 1.. MS
-* encounter MS
 * date MS
-* author MS
 * author ^short = "Who and/or what authored the SVC"
 * author ^definition = "Identifies who is responsible for the information in the SVC, not necessarily who typed it in."
 * title MS
 * title ^short = "Smart Vaccination Card"
 * title ^definition = "Official human-readable label for the composition.\r\n\r\nFor this document should be \"Smart Vaccination Card\" or any equivalent translation"
-* confidentiality MS
 * attester MS
 * attester.mode MS
 * attester.time MS
 * attester.party MS
-* custodian MS
-
-* relatesTo MS
-* relatesTo.code MS
-* relatesTo.target[x] only Identifier or Reference(Composition or CompositionSvc)
-* relatesTo.target[x] MS
-
 
 * section 1.. MS
 * section ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
@@ -97,15 +87,15 @@ Description: "This profile defines how to represent a vaccination certificate in
 * section[sectionImmunizations].entry ^slicing.rules = #open
 * section[sectionImmunizations].entry ^short = "Patient's immunization status and pertinent history."
 * section[sectionImmunizations].entry ^definition = "It defines the patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\nIt may contain the entire immunization history that is relevant to the period of time being summarized. This entry shall be used to document that no information about immunizations is available, or that no immunizations are known."
-* section[sectionImmunizations].entry contains immunization 1.. MS and immunizationRecommendation 0.. MS
-* section[sectionImmunizations].entry[immunization] 1..
+* section[sectionImmunizations].entry contains immunization 0.. MS and immunizationRecommendation 0.. MS
+// * section[sectionImmunizations].entry[immunization] 0..
 * section[sectionImmunizations].entry[immunization] only Reference(ImmunizationSvc)
 * section[sectionImmunizations].emptyReason ..0
 * section[sectionImmunizations].emptyReason ^mustSupport = false
 * section[sectionImmunizations].section ..0
 * section[sectionImmunizations].section ^mustSupport = false
 
-* section[sectionImmunizations].entry[immunizationRecommendation] 0..
+// * section[sectionImmunizations].entry[immunizationRecommendation] 0..
 * section[sectionImmunizations].entry[immunizationRecommendation] only Reference(ImmunizationRecommendationSvc)
 * section[sectionImmunizations].emptyReason ..0
 * section[sectionImmunizations].emptyReason ^mustSupport = false
@@ -140,12 +130,13 @@ Parent:   ImmunizationRecommendation
 Id:       ImmunizationRecommendation-svc
 Title:    "ImmunizationRecommendation (SVC)"
 Description: "This profile defines how to represent Immunization Recommandations in FHIR for building a Smart vaccination Card."
-
 //-------------------------------------------------------------------------------------------
 
 * date MS
 * patient MS
-
+* recommendation.vaccineCode ^short = "Generic description of the vaccine/prophylaxis or its component(s)"
+* recommendation.targetDisease ^short = "Disease or agent that the vaccination provides protection against"
+* recommendation.forecastStatus MS
 * recommendation.dateCriterion ^slicing.discriminator[0].type = #pattern
 * recommendation.dateCriterion ^slicing.discriminator[0].path = "code"
 * recommendation.dateCriterion ^slicing.rules = #open
@@ -194,13 +185,17 @@ Description: "This profile defines how to represent a vaccination certificate in
 
 * entry contains 
 	composition  1..1 MS and  
-	immunization 1.. MS
+	immunization 0.. MS and
+	immunizationRecommendation 0.. MS
 
 * entry[composition].resource 1..1 MS
 * entry[composition].resource only CompositionSvc
 	
 * entry[immunization].resource 1..1 MS
 * entry[immunization].resource only ImmunizationSvc
+
+* entry[immunizationRecommendation].resource 1..1 MS
+* entry[immunizationRecommendation].resource only ImmunizationRecommendationSvc
 
 
 
