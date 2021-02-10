@@ -52,10 +52,19 @@
 			<reference>
 				<reference value="Bundle/svc-Bundle-01"/>
 			</reference>
-			<name value="Czech vaccination example"/>
-			<description value="Czech vaccination example"/>
+			<name value="Czech vaccination example: 2 doses"/>
+			<description value="Czech vaccination example: 2 doses"/>
 			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
 		</resource>
+			<resource>
+			<reference>
+				<reference value="Bundle/svc-Bundle-02"/>
+			</reference>
+			<name value="Czech vaccination example: 1 dose"/>
+			<description value="Czech vaccination example: 1 dose"/>
+			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
+		</resource>
+		
 		<!-- You don't need to define any groupings.  The IGPublisher will define them for you.  You only need to do so if your IG is 'special' and it's
       inappropriate to use the defaults.  Feel free to provide feedback about the defaults... -->
 		<page>
