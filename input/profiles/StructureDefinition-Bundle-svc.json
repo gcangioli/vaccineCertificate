@@ -63,6 +63,12 @@
         "mustSupport": true
       },
       {
+        "id": "Bundle.identifier.system",
+        "path": "Bundle.identifier.system",
+        "short": "(temporary URL)",
+        "patternUri": "http://hl7.eu/fhir/sid/uvci"
+      },
+      {
         "id": "Bundle.identifier.period",
         "path": "Bundle.identifier.period",
         "mustSupport": true
