@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Start by finding all references to "myig" and updating to appropriate text for your IG, including changing realm -->
-<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImplementationGuide xmlns="http://hl7.org/fhir"
+                   	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="ig-svc"/>
 	<!--  <extension url="http://hl7.org/fhir/tools/StructureDefinition/igpublisher-spreadsheet">
     <valueString value="resources-spreadsheet.xml"/>
@@ -19,7 +20,7 @@
 			<system value="email"/>
 			<value value="mailto:giorgio.cangioli@gmail.com"/>
 		</telecom>
-	</contact> 
+	</contact>
 	<description value="Vaccination Certificate PoC FHIR Implementation Guide"/>
 	<jurisdiction>
 		<!-- This will drive SNOMED release used -->
@@ -27,13 +28,12 @@
 			<!-- This is the code for universal -->
 			<!-- <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/> -->
 			<!-- <code value="150"/> -->
-<!-- 			<system value="urn:iso:std:iso:3166"/>
+			<!-- 			<system value="urn:iso:std:iso:3166"/>
 			<code value="EU"/> -->
 			<display value="Europe"/>
 			<!-- Change to this if the IG is country-specific -->
-			  <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
-			  <code value="001"/>
-     
+			<system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+			<code value="001"/>
 		</coding>
 	</jurisdiction>
 	<packageId value="hl7.fhir.eu.poc.svc"/>
@@ -43,12 +43,12 @@
 	<fhirVersion value="4.0.1"/>
 	<dependsOn>
 		<!-- <uri value="http://hl7.org/fhir/uv/ips/ImplementationGuide/ig-uv-ips"/> -->
-		<uri value="http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips"/> 
+		<uri value="http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips"/>
 		<packageId value="hl7.fhir.uv.ips"/>
 		<version value="current"/>
 	</dependsOn>
-	<definition>	
-	<resource>
+	<definition>
+		<resource>
 			<reference>
 				<reference value="Bundle/svc-Bundle-01"/>
 			</reference>
@@ -56,7 +56,7 @@
 			<description value="Czech vaccination example: 2 doses"/>
 			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
 		</resource>
-			<resource>
+		<resource>
 			<reference>
 				<reference value="Bundle/svc-Bundle-02"/>
 			</reference>
@@ -64,7 +64,14 @@
 			<description value="Czech vaccination example: 1 dose"/>
 			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
 		</resource>
-		
+		<resource>
+			<reference>
+				<reference value="Bundle/svc-Bundle-03"/>
+			</reference>
+			<name value="Vaccination example: no 2nd dose"/>
+			<description value="Vaccination example: no 2nd dose"/>
+			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
+		</resource>
 		<!-- You don't need to define any groupings.  The IGPublisher will define them for you.  You only need to do so if your IG is 'special' and it's
       inappropriate to use the defaults.  Feel free to provide feedback about the defaults... -->
 		<page>
@@ -77,7 +84,7 @@
 				<title value="Smart Vaccination Card Proof of Concept - Home Page"/>
 				<generation value="markdown"/>
 			</page>
-<!-- 			<page>
+			<!-- 			<page>
 				<nameUrl value="background.html"/>
 				<title value="Background"/>
 				<generation value="html"/>

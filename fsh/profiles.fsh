@@ -102,6 +102,25 @@ Description: "This profile defines how to represent a vaccination certificate in
 * section[sectionImmunizations].section ..0
 * section[sectionImmunizations].section ^mustSupport = false
 
+
+/*++++++++++++++++++++++++++ NOT USED FOR THE TIME BEING ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Profile:  ImmunizationNotDone
+Parent:   Immunization
+Id:       Immunization-notDone-svc
+Title:    "Immunization (SVC)"
+Description: "This profile defines how to represent Immunizations in FHIR for representing in a Smart vaccination Certificate a not given immunization."
+
+//-------------------------------------------------------------------------------------------
+
+* vaccineCode MS
+* status = #not-done
+* statusReason MS
+* patient MS
+* protocolApplied.doseNumber[x] MS
+* protocolApplied.seriesDoses[x] MS
+
+==== */
+
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Profile:  ImmunizationSvc
 Parent:   ips_Immunization
@@ -194,6 +213,7 @@ Description: "This profile defines how to represent a vaccination certificate in
 * entry[composition].resource only CompositionSvc
 	
 * entry[immunization].resource 1..1 MS
+// * entry[immunization].resource only ImmunizationSvc or ImmunizationNotDone
 * entry[immunization].resource only ImmunizationSvc
 
 * entry[immunizationRecommendation].resource 1..1 MS

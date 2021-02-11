@@ -5,7 +5,7 @@ Alias: $sct = http://snomed.info/sct
 Instance: svc-Bundle-02
 InstanceOf: Bundle
 Usage: #example
-* identifier.system = "urn:oid:1.2.203.24341.1.20.2"
+* identifier.system = "http://hl7.eu/fhir/sid/uvci"
 * identifier.value = "V1CZ454557891308174803488707671418"
 * identifier.period.start = "2020-12-27T14:30:00+01:00" // I guess that precision to a day would be enough!
 * identifier.period.end = "2021-12-27T14:30:00+01:00" // 1 year validity
@@ -43,6 +43,8 @@ Usage: #inline
 * custodian.reference = "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7"
 * section[0].title = "Vaccinations"
 * section[0].code = $loinc#11369-6 "Hx of Immunization"
+* section[0].text.status = #generated
+* section[0].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>Date</th><th>Product</th><th>Vaccine</th><th>Dose</th></tr></thead><tbody><tr><td>2020-12-02</td><td>Comirnaty</td><td>COVID-19 mRNA Vaccine</td><td>1/2</td></tr></tbody></table></div>"
 * section[0].entry[0].reference = "urn:uuid:57d581c1-950c-4fee-8347-63d8b70c03f5"
 // * section[0].entry[1].reference = "urn:uuid:47524493-846a-4a26-bae2-4ab03e60f02e"
 

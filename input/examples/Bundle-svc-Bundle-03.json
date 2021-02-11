@@ -1,16 +1,15 @@
 {
   "resourceType": "Bundle",
-  "id": "svc-Bundle-01",
+  "id": "svc-Bundle-03",
   "identifier": {
     "system": "http://hl7.eu/fhir/sid/uvci",
-    "value": "V1CZ454557891308174803488707671418",
+    "value": "V1IT454557891308174803488707671418",
     "period": {
-      "start": "2020-12-27T14:30:00+01:00",
-      "end": "2021-12-27T14:30:00+01:00"
+      "start": "2021-02-10"
     }
   },
   "type": "document",
-  "timestamp": "2020-12-27T14:30:00+01:00",
+  "timestamp": "2021-02-10T14:30:00+01:00",
   "entry": [
     {
       "fullUrl": "urn:uuid:30551ce1-5a28-4356-b684-1e639094ad4d",
@@ -34,14 +33,13 @@
         "subject": {
           "reference": "urn:uuid:2b90dd2b-2dab-4c75-9bb9-a355e07401e8"
         },
-        "date": "2020-12-27T14:30:00+01:00",
+        "date": "2021-02-10T14:30:00+01:00",
         "author": [
           {
-            "display": "MUDr. Aleš Procházka"
+            "reference": "urn:uuid:d7a490a1-d267-4785-ac98-db56748827fb"
           }
         ],
-        "title": "Vaccine Certificate December 27, 2020 14:30",
-        "confidentiality": "N",
+        "title": "Vaccine Certificate Covid-19",
         "attester": [
           {
             "mode": "legal",
@@ -52,7 +50,7 @@
           }
         ],
         "custodian": {
-          "reference": "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7"
+          "reference": "urn:uuid:b66c1b23-21e9-4bd0-9cd7-edd806c126de"
         },
         "section": [
           {
@@ -68,7 +66,7 @@
             },
             "text": {
               "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>Date</th><th>Product</th><th>Vaccine</th><th>Dose</th></tr></thead><tbody><tr><td>2020-12-02</td><td>Comirnaty</td><td>COVID-19 mRNA Vaccine</td><td>1/2</td></tr><tr><td>2020-12-23</td><td>Comirnaty</td><td>COVID-19 mRNA Vaccine</td><td>2/2</td></tr></tbody></table></div>"
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>Date</th><th>Product</th><th>Vaccine</th><th>Dose</th><th>Status</th></tr></thead><tbody><tr><td>2021-01-10</td><td>Comirnaty</td><td>COVID-19 mRNA Vaccine</td><td>1/2</td><td>completed</td></tr><tr><td>2021-02-07</td><td></td><td>COVID-19 mRNA Vaccine</td><td>2/2</td><td>Not Done (medical precaution)</td></tr></tbody></table></div>"
             },
             "entry": [
               {
@@ -89,44 +87,20 @@
         "id": "2b90dd2b-2dab-4c75-9bb9-a355e07401e8",
         "identifier": [
           {
-            "type": {
-              "coding": [
-                {
-                  "code": "NIIP",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "system": "urn:oid:1.2.203.24341.1.20.2",
-            "value": "740512852"
-          },
-          {
-            "system": "urn:oid:1.2.203.24341.1.20.9.1",
-            "value": "A225961454"
-          },
-          {
-            "type": {
-              "coding": [
-                {
-                  "code": "PPN",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "system": "urn:oid:2.16.840.1.113883.4.330.203",
-            "value": "5484136"
+            "system": "http://hl7.it/sid/codiceFiscale",
+            "value": "RSSMRA97L67Z602C"
           }
         ],
         "name": [
           {
-            "family": "Očkovaný",
+            "family": "Rossi",
             "given": [
-              "František"
+              "Maria"
             ]
           }
         ],
-        "gender": "male",
-        "birthDate": "2000-03-21"
+        "gender": "female",
+        "birthDate": "1997-07-28"
       }
     },
     {
@@ -186,7 +160,16 @@
       "resource": {
         "resourceType": "Immunization",
         "id": "47524493-846a-4a26-bae2-4ab03e60f02e",
-        "status": "completed",
+        "status": "not-done",
+        "statusReason": {
+          "coding": [
+            {
+              "code": "MEDPREC",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "display": "medical precaution"
+            }
+          ]
+        },
         "vaccineCode": {
           "coding": [
             {
@@ -194,39 +177,28 @@
               "system": "http://snomed.info/sct",
               "display": "Vaccine product containing only Severe acute respiratory syndrome coronavirus 2 messenger ribonucleic acid"
             }
-          ],
-          "text": "Comirnaty"
+          ]
         },
         "patient": {
           "reference": "urn:uuid:2b90dd2b-2dab-4c75-9bb9-a355e07401e8"
         },
-        "occurrenceDateTime": "2020-12-23",
-        "location": {
-          "reference": "urn:uuid:55a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd8"
-        },
-        "manufacturer": {
-          "display": "BioNTech Manufacturing GmbH"
-        },
-        "lotNumber": "D5423452",
+        "occurrenceDateTime": "2021-02-07",
         "performer": [
           {
             "actor": {
-              "display": "MUDr. Jan Novák"
+              "reference": "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7",
+              "display": "Ospedale Careggi - Firenze"
+            }
+          },
+          {
+            "actor": {
+              "reference": "urn:uuid:d7a490a1-d267-4785-ac98-db56748827fb"
             }
           }
         ],
+        "recorded": "2021-02-07",
         "protocolApplied": [
           {
-            "targetDisease": [
-              {
-                "coding": [
-                  {
-                    "code": "840533007",
-                    "system": "http://snomed.info/sct"
-                  }
-                ]
-              }
-            ],
             "doseNumberPositiveInt": 2,
             "seriesDosesString": "2"
           }
@@ -240,11 +212,11 @@
         "id": "45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7",
         "identifier": [
           {
-            "system": "urn:oid:1.2.203",
-            "value": "24341"
+            "system": "http://terminology.hl7.it/CodeSystem/minsan-hsp",
+            "value": "090903"
           }
         ],
-        "name": "Ministry of Health of the Czech Republic"
+        "name": "AZ. OSPEDALIERO - UNIVERSITARIA CAREGGI"
       }
     },
     {
@@ -252,11 +224,38 @@
       "resource": {
         "resourceType": "Location",
         "id": "55a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd8",
-        "name": "Hospital Na Františku Prague",
+        "name": "AZ. OSPEDALIERO - UNIVERSITARIA CAREGGI",
         "address": {
-          "city": "Prague",
-          "country": "CZ"
+          "city": "Firenze",
+          "country": "IT"
         }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b66c1b23-21e9-4bd0-9cd7-edd806c126de",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "b66c1b23-21e9-4bd0-9cd7-edd806c126de",
+        "identifier": [
+          {
+            "system": "http://terminology.hl7.it/CodeSystem/minsan-regione",
+            "value": "090"
+          }
+        ],
+        "name": "Regione Toscana"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d7a490a1-d267-4785-ac98-db56748827fb",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "d7a490a1-d267-4785-ac98-db56748827fb",
+        "identifier": [
+          {
+            "system": "http://hl7.it/sid/codiceFiscale",
+            "value": "VRDRCR70H08H703B"
+          }
+        ]
       }
     }
   ]
