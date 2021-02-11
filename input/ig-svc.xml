@@ -52,7 +52,7 @@
 			<reference>
 				<reference value="Bundle/svc-Bundle-01"/>
 			</reference>
-			<name value="Czech vaccination example: 2 doses"/>
+			<name value="Two doses (Immunization)"/>
 			<description value="Czech vaccination example: 2 doses"/>
 			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
 		</resource>
@@ -60,7 +60,7 @@
 			<reference>
 				<reference value="Bundle/svc-Bundle-02"/>
 			</reference>
-			<name value="Czech vaccination example: 1 dose"/>
+			<name value="Only first dose (Immunization)"/>
 			<description value="Czech vaccination example: 1 dose"/>
 			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
 		</resource>
@@ -68,8 +68,16 @@
 			<reference>
 				<reference value="Bundle/svc-Bundle-03"/>
 			</reference>
-			<name value="Vaccination example: no 2nd dose"/>
-			<description value="Vaccination example: no 2nd dose"/>
+			<name value="Second dose not given (Immunization)"/>
+			<description value="Vaccination example: second dose not given"/>
+			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
+		</resource>
+		<resource>
+			<reference>
+				<reference value="Bundle/svc-Bundle-04"/>
+			</reference>
+			<name value="Second dose not given (ImmunizationRecommendation)"/>
+			<description value="Vaccination example: second dose not given immunization status)"/>
 			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
 		</resource>
 		<!-- You don't need to define any groupings.  The IGPublisher will define them for you.  You only need to do so if your IG is 'special' and it's
