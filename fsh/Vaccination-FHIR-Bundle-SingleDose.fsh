@@ -91,8 +91,8 @@ Usage: #inline
 * date = "2020-12-02"
 * authority.reference = "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7"
 * recommendation[0].forecastStatus = $Immunization-recommendation-status#due "The patient is due for their next vaccination"
-* recomendation[0].nextDose.code = $loinc#30980-7 "Date vaccine due"
-* recomendation[0].nextDose.value = "2020-12-23"
+* recommendation[0].dateCriterion[0].code = $loinc#30980-7 "Date vaccine due"
+* recommendation[0].dateCriterion[0].value = "2020-12-23"
 * recommendation[0].doseNumberPositiveInt = 2
 * recommendation[0].seriesDosesPositiveInt = 2
 
