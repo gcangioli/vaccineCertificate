@@ -60,8 +60,8 @@
 			<reference>
 				<reference value="Bundle/svc-Bundle-02"/>
 			</reference>
-			<name value="Only first dose (Immunization)"/>
-			<description value="Czech vaccination example: 1 dose"/>
+			<name value="Only first dose given (Immunization)"/>
+			<description value="Czech vaccination example: 1 dose given, second dose planned"/>
 			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
 		</resource>
 		<resource>
