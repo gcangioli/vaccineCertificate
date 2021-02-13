@@ -1,0 +1,7 @@
+_*.*
+input-cache/
+output/
+sample-ig-master/
+temp/
+template/
+**/build/
