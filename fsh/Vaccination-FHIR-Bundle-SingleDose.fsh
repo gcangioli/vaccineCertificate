@@ -17,12 +17,12 @@ Usage: #example
 * entry[1].resource = Inline-Instance-for-svc-Bundle-02-2
 * entry[2].fullUrl = "urn:uuid:57d581c1-950c-4fee-8347-63d8b70c03f5" // immunization
 * entry[2].resource = Inline-Instance-for-svc-Bundle-02-3
-//* entry[2].fullUrl = "urn:uuid:47524493-846a-4a26-bae2-4ab03e60f02e"
-//* entry[2].resource = Inline-Instance-for-svc-Bundle-02-3
-* entry[3].fullUrl = "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7"  // issuer
+* entry[3].fullUrl = "urn:uuid:e79e9fc2-68ea-4226-8f9f-a8231649d466" // immunization recomendation
 * entry[3].resource = Inline-Instance-for-svc-Bundle-02-4
-* entry[4].fullUrl = "urn:uuid:55a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd8"  // Location
-* entry[4].resource = Inline-Instance-for-svc-Bundle-02-5  
+* entry[4].fullUrl = "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7"  // issuer
+* entry[4].resource = Inline-Instance-for-svc-Bundle-02-5
+* entry[5].fullUrl = "urn:uuid:55a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd8"  // Location
+* entry[5].resource = Inline-Instance-for-svc-Bundle-02-6  
 
 Instance: Inline-Instance-for-svc-Bundle-02-1
 InstanceOf: Composition
@@ -44,7 +44,7 @@ Usage: #inline
 * section[0].title = "Vaccinations"
 * section[0].code = $loinc#11369-6 "Hx of Immunization"
 * section[0].entry[0].reference = "urn:uuid:57d581c1-950c-4fee-8347-63d8b70c03f5"
-// * section[0].entry[1].reference = "urn:uuid:47524493-846a-4a26-bae2-4ab03e60f02e"
+* section[0].entry[1].reference = "urn:uuid:e79e9fc2-68ea-4226-8f9f-a8231649d466"
 
 Instance: Inline-Instance-for-svc-Bundle-02-2
 InstanceOf: Patient
@@ -77,29 +77,24 @@ Usage: #inline
 * manufacturer.display = "BioNTech Manufacturing GmbH"
 * lotNumber = "B1235742"
 * performer[0].actor.display = "MUDr. Jan Očko CSc."
-* protocolApplied[0].targetDisease[0] = $sct#840533007
+* protocolApplied[0].targetDisease[0] = $sct#840533007 "SARS-CoV-2"
 * protocolApplied[0].doseNumberPositiveInt = 1
-* protocolApplied[0].seriesDosesString = "2"
-
-// Instance: Inline-Instance-for-svc-Bundle-02-3
-// InstanceOf: Immunization
-// Usage: #inline
-// * id = "47524493-846a-4a26-bae2-4ab03e60f02e"
-// * status = #completed
-// * vaccineCode = $sct#1119349007 "Vaccine product containing only Severe acute respiratory syndrome coronavirus 2 messenger ribonucleic acid"
-// // * vaccineCode = $sct#333521006 - used for testing the slicing error
-// * vaccineCode.text = "Comirnaty"
-// * patient.reference = "urn:uuid:45598100-e07c-4c4a-a54e-561459dc4dea"
-// * occurrenceDateTime = "2020-12-23"
-// * location.reference = "urn:uuid:55a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd8"
-// * manufacturer.display = "BioNTech Manufacturing GmbH"
-// * lotNumber = "D5423452"
-// * performer[0].actor.display = "MUDr. Jan Novák"
-// * protocolApplied[0].targetDisease[0] = $sct#840533007
-// * protocolApplied[0].doseNumberPositiveInt = 2
-// * protocolApplied[0].seriesDosesString = "2"
+* protocolApplied[0].seriesDosesPositiveInt = 2
 
 Instance: Inline-Instance-for-svc-Bundle-02-4
+InstanceOf: ImmunizationRecommendation
+Usage: #inline
+* id = "e79e9fc2-68ea-4226-8f9f-a8231649d466"
+* patient.reference = "urn:uuid:45598100-e07c-4c4a-a54e-561459dc4dea"
+* date = "2020-12-02"
+* authority.reference = "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7"
+* recommendation[0].forecastStatus = $Immunization-recommendation-status#due "The patient is due for their next vaccination"
+* recomendation[0].nextDose.code = $loinc#30980-7 "Date vaccine due"
+* recomendation[0].nextDose.value = "2020-12-23"
+* recommendation[0].doseNumberPositiveInt = 2
+* recommendation[0].seriesDosesPositiveInt = 2
+
+Instance: Inline-Instance-for-svc-Bundle-02-5
 InstanceOf: Organization
 Usage: #inline
 * id = "45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7"
@@ -107,7 +102,7 @@ Usage: #inline
 * identifier[0].value = "24341"
 * name = "Ministry of Health of the Czech Republic"
 
-Instance: Inline-Instance-for-svc-Bundle-02-5
+Instance: Inline-Instance-for-svc-Bundle-02-6
 InstanceOf: Location
 Usage: #inline
 * id = "55a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd8"
