@@ -5,7 +5,7 @@ Alias: $sct = http://snomed.info/sct
 Instance: svc-Bundle-01
 InstanceOf: Bundle
 Usage: #example
-* identifier.system = "urn:oid:1.2.203.24341.1.20.2"
+* identifier.system = "http://hl7.eu/fhir/sid/uvci"
 * identifier.value = "V1CZ454557891308174803488707671418"
 * identifier.period.start = "2020-12-27T14:30:00+01:00" // I guess that precision to a day would be enough!
 * identifier.period.end = "2021-12-27T14:30:00+01:00" // 1 year validity
@@ -44,7 +44,7 @@ Usage: #inline
 * section[0].title = "Vaccinations"
 * section[0].code = $loinc#11369-6 "Hx of Immunization"
 * section[0].text.status = #generated
-* section[0].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;<table>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<thead>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<tr>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<th>Date</th>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<th>Product</th>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<th>Vaccine</th>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<th>Dose</th>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;</tr>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;</thead>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<tbody>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<tr>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<td>2020-12-02</td>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<td>Comirnaty</td>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<td>COVID-19 mRNA Vaccine</td>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<td>1/2</td>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;</tr>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<tr>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<td>2020-12-23</td>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<td>Comirnaty</td>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<td>COVID-19 mRNA Vaccine</td>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;<td>2/2</td>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;</tr>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;</tbody>\n&#9;&#9;&#9;&#9;&#9;&#9;&#9;</table>\n&#9;&#9;&#9;&#9;&#9;&#9;</div>"
+* section[0].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><thead><tr><th>Date</th><th>Product</th><th>Vaccine</th><th>Dose</th></tr></thead><tbody><tr><td>2020-12-02</td><td>Comirnaty</td><td>COVID-19 mRNA Vaccine</td><td>1/2</td></tr><tr><td>2020-12-23</td><td>Comirnaty</td><td>COVID-19 mRNA Vaccine</td><td>2/2</td></tr></tbody></table></div>"
 * section[0].entry[0].reference = "urn:uuid:c220e36c-eb67-4fc4-9ba1-2fabc52acec6"
 * section[0].entry[1].reference = "urn:uuid:47524493-846a-4a26-bae2-4ab03e60f02e"
 
