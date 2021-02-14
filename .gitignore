@@ -1,7 +1,6 @@
-_*.*
-input-cache/
-output/
-sample-ig-master/
-temp/
-template/
-**/build/
+/fsh/build
+/output
+/temp
+/log.txt
+/fsh-generated
+/template

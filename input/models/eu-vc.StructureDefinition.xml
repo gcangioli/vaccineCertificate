@@ -48,7 +48,7 @@
 				<code value="BackboneElement"/>
 			</type>
 			<constraint>
-				<key value="eu-vc-1"/>
+				<key value="eu-svc-1"/>
 				<severity value="error"/>
 				<human value="If no Person identifier is provided then the date of birth shall be valued"/>
 				<expression value="identifier.exists() or birthDate.exists()"/>
