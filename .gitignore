@@ -6,6 +6,6 @@
 /template
 /sample-ig-master
 /input-cache
+input/examples/*
 _*.*
-input/examples/Bundle-svc-Bundle-01.json
-input/examples/Bundle-svc-Bundle-03.json
+
