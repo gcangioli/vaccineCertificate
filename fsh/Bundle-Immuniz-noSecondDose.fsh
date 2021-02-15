@@ -86,7 +86,7 @@ Usage: #inline
 * performer[1].actor.reference = "urn:uuid:d7a490a1-d267-4785-ac98-db56748827fb" // 
 * protocolApplied[0].targetDisease[0] = $icd-10#J12.82 "Pneumonia due to coronavirus disease 2019" // $sct#840533007 
 * protocolApplied[0].doseNumberPositiveInt = 1
-* protocolApplied[0].seriesDosesString = "2"
+* protocolApplied[0].seriesDosesPositiveInt = 2
 
 Instance: Inline-Instance-for-svc-Bundle-03-3
 // OK
@@ -103,7 +103,7 @@ Usage: #inline
 * performer[1].actor.reference = "urn:uuid:d7a490a1-d267-4785-ac98-db56748827fb" // 
 * recorded = "2021-02-07"
 * protocolApplied[0].doseNumberPositiveInt = 2
-* protocolApplied[0].seriesDosesString = "2"
+* protocolApplied[0].seriesDosesPositiveInt = 2
 
 Instance: Inline-Instance-for-svc-Bundle-03-4
 // OK

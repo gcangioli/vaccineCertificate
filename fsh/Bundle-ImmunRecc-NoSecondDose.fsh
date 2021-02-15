@@ -95,13 +95,13 @@ Usage: #inline
 * recommendation[0].dateCriterion[1].code = $loinc#45354-8 "Date next dose"
 * recommendation[0].dateCriterion[1].value = "2021-02-07"
 * recommendation[0].doseNumberPositiveInt = 1
-* recommendation[0].seriesDosesString = "2"
+* recommendation[0].seriesDosesPositiveInt = 2
 * recommendation[1].forecastStatus = http://terminology.hl7.org/CodeSystem/immunization-recommendation-status#contraindicated
 * recommendation[1].forecastReason = http://terminology.hl7.org/CodeSystem/v3-ActReason#MEDPREC	"medical precaution"
 * recommendation[1].dateCriterion[0].code = $loinc#30980-7 	"Date vaccine due"
 * recommendation[1].dateCriterion[0].value = "2021-02-07"
-* recommendation[0].doseNumberPositiveInt = 2
-* recommendation[0].seriesDosesString = "2"
+* recommendation[1].doseNumberPositiveInt = 2
+* recommendation[1].seriesDosesPositiveInt = 2
 
 
 
