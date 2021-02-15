@@ -4,3 +4,6 @@
 /log.txt
 /fsh-generated
 /template
+/sample-ig-master
+/input-cache
+_*.*

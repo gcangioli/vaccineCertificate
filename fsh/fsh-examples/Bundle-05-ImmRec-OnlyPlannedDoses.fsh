@@ -92,11 +92,12 @@ Usage: #inline
 * recommendation[0].dateCriterion[0].value = "2021-01-10"
 * recommendation[0].doseNumberPositiveInt = 1
 * recommendation[0].seriesDosesPositiveInt = 2
-* recommendation[0].forecastStatus = http://terminology.hl7.org/CodeSystem/immunization-recommendation-status#due
-* recommendation[0].dateCriterion[0].code = $loinc#30980-7 	"Date vaccine due"
-* recommendation[0].dateCriterion[0].value = "2021-02-07"
-* recommendation[0].doseNumberPositiveInt = 2
-* recommendation[0].seriesDosesPositiveInt = 2
+* recommendation[1].forecastStatus = http://terminology.hl7.org/CodeSystem/immunization-recommendation-status#contraindicated
+* recommendation[1].forecastReason = http://terminology.hl7.org/CodeSystem/v3-ActReason#MEDPREC	"medical precaution"
+* recommendation[1].dateCriterion[0].code = $loinc#30980-7 	"Date vaccine due"
+* recommendation[1].dateCriterion[0].value = "2021-02-07"
+* recommendation[1].doseNumberPositiveInt = 2
+* recommendation[1].seriesDosesPositiveInt = 2
 
 
 Instance: Inline-Instance-for-svc-Bundle-05-4
