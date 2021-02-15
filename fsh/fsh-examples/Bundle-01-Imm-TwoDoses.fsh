@@ -80,7 +80,7 @@ Usage: #inline
 * performer[0].actor.display = "MUDr. Aleš Procházka"
 * protocolApplied[0].targetDisease[0] = $sct#840533007
 * protocolApplied[0].doseNumberPositiveInt = 1
-* protocolApplied[0].seriesDosesString = "2"
+* protocolApplied[0].seriesDosesPositiveInt = 2
 
 Instance: Inline-Instance-for-svc-Bundle-01-3
 InstanceOf: Immunization
@@ -98,7 +98,7 @@ Usage: #inline
 * performer[0].actor.display = "MUDr. Jan Novák"
 * protocolApplied[0].targetDisease[0] = $sct#840533007
 * protocolApplied[0].doseNumberPositiveInt = 2
-* protocolApplied[0].seriesDosesString = "2"
+* protocolApplied[0].seriesDosesPositiveInt = 2
 
 Instance: Inline-Instance-for-svc-Bundle-01-4
 InstanceOf: Organization

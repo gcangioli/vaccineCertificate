@@ -8,18 +8,15 @@ Alias: ips_result = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-r
 Alias: ips_lab_result = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-laboratory-uv-ips
 Alias: ips_path_result = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-pathology-uv-ips
 Alias: ips_rad_result = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips
-Alias: ips_Patient = http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips
-Alias: ips_Immunization = http://hl7.org/fhir/uv/ips/StructureDefinition/Immunization-uv-ips
-//=========================
-
-Alias: $loinc = http://loinc.org
-Alias: $v3-ActClass = http://terminology.hl7.org/CodeSystem/v3-ActClass
-Alias: $clinicaldocument = http://hl7.org/fhir/StructureDefinition/clinicaldocument
-Alias: $CodeableConcept-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
 Alias: $Patient-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips
 Alias: $MedicationStatement-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/MedicationStatement-uv-ips
 Alias: $Immunization-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Immunization-uv-ips
-Alias: $Immunization-recommendation-status = http://hl7.org/fhir/ValueSet/immunization-recommendation-status
+Alias: $clinicaldocument = http://hl7.org/fhir/StructureDefinition/clinicaldocument
+Alias: $CodeableConcept-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
+
+
+
+
 //====== Profiles =====================================
 
 
@@ -123,7 +120,7 @@ Description: "This profile defines how to represent Immunizations in FHIR for re
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Profile:  ImmunizationSvc
-Parent:   ips_Immunization
+Parent:   $Immunization-uv-ips
 Id:       Immunization-svc
 Title:    "Immunization (SVC)"
 Description: "This profile defines how to represent Immunizations in FHIR for building a Smart vaccination Card."

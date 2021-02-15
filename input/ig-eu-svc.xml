@@ -9,7 +9,7 @@
 	<url value="http://hl7.eu/fhir/poc/svc/ImplementationGuide/ig-svc"/>
 	<!-- This version will propagate to all artifacts unless the "propagate-version" extension is overridden -->
 	<version value="0.0.1"/>
-	<name value="VaccinationCertificateModels"/>
+	<name value="VaccinationCertificateIg"/>
 	<title value="Vaccination Certificate PoC FHIR Implementation Guide"/>
 	<status value="draft"/>
 	<experimental value="true"/>
@@ -42,11 +42,15 @@
 	<!-- This is whatever FHIR version(s) the IG artifacts are targeting (not the version of this file, which should always be 'current release') -->
 	<fhirVersion value="4.0.1"/>
 	<dependsOn>
-		<!-- <uri value="http://hl7.org/fhir/uv/ips/ImplementationGuide/ig-uv-ips"/> -->
 		<uri value="http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips"/>
 		<packageId value="hl7.fhir.uv.ips"/>
-		<version value="current"/>
+		<version value="dev"/>
 	</dependsOn>
+		<!-- <dependsOn> -->
+		<!-- <uri value="http://fhir.org/guides/who/svc/ImplementationGuide/hl7.fhir.eu.poc.svc"/> -->
+		<!-- <packageId value="who.fhir.svc"/> -->
+		<!-- <version value="dev"/> -->
+	<!-- </dependsOn> -->
 	<definition>
 		<resource>
 			<reference>
@@ -69,7 +73,7 @@
 				<reference value="Bundle/svc-Bundle-03"/>
 			</reference>
 			<name value="Second dose not given (Immunization)"/>
-			<description value="Vaccination example: second dose not given"/>
+			<description value="Vaccination example: second dose not given (only immunization events)"/>
 			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
 		</resource>
 		<resource>
@@ -77,7 +81,23 @@
 				<reference value="Bundle/svc-Bundle-04"/>
 			</reference>
 			<name value="Second dose not given (ImmunizationRecommendation)"/>
-			<description value="Vaccination example: second dose not given immunization status)"/>
+			<description value="Vaccination example: second dose not given (Immunization and ImmunizationRecommendation)"/>
+			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
+		</resource>
+				<resource>
+			<reference>
+				<reference value="Bundle/svc-Bundle-05"/>
+			</reference>
+			<name value="Only planned vaccinations (ImmunizationRecommendation)"/>
+			<description value="Vaccination example: only planned vaccinations"/>
+			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
+		</resource>
+				<resource>
+			<reference>
+				<reference value="Bundle/svc-Bundle-06"/>
+			</reference>
+			<name value="Second dose not given due to adverse reaction"/>
+			<description value="Vaccination example: second dose not given due to adverse reaction(Immunization and ImmunizationRecommendation)"/>
 			<exampleCanonical value="http://hl7.eu/fhir/poc/svc/StructureDefinition/Bundle-svc"/>
 		</resource>
 		<!-- You don't need to define any groupings.  The IGPublisher will define them for you.  You only need to do so if your IG is 'special' and it's

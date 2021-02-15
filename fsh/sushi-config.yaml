@@ -13,7 +13,7 @@
 id: gatekeeper
 canonical: http://hl7.eu/fhir/poc/svc
 version: 0.1.0
-name: VaccinationCertificateModels
+name: VaccinationCertificateIg
 title: Vaccination Certificate PoC FHIR Implementation Guide
 status: active
 publisher: Giorgio Cangioli
@@ -29,7 +29,7 @@ dependencies:
   hl7.fhir.uv.ips: current
 parameters:
   show-inherited-invariants: false
-copyrightYear: 2020+
+copyrightYear: 2021+
 releaseLabel: CI Build
 
 

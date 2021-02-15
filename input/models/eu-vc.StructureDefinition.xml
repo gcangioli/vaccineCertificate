@@ -231,8 +231,8 @@ Example: 1/2"/>
 				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').lotNumber"/>
 			</mapping>
 		</element>
-		<element id="vaccinationCertificate.vaccination.date">
-			<path value="vaccinationCertificate.vaccination.date"/>
+		<element id="vaccinationCertificate.vaccination.dateOfVaccination">
+			<path value="vaccinationCertificate.vaccination.dateOfVaccination"/>
 			<short value="Date of vaccination"/>
 			<definition value="Date of vaccination"/>
 			<min value="0"/>
