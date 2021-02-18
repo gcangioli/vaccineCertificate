@@ -28,7 +28,7 @@ Instance: Inline-Instance-for-svc-Bundle-01-1
 InstanceOf: Composition
 Usage: #inline
 * id = "30551ce1-5a28-4356-b684-1e639094ad4d"
-* identifier.system = "urn:oid:2.16.724.4.8.10.200.10"
+* identifier.system = "urn:ietf:rfc:3986"
 * identifier.value = "3f69e0a5-2177-4540-baab-7a5d0877428f"
 * status = #final
 * type = $loinc#82593-5 "Immunization summary report"
@@ -63,7 +63,7 @@ Usage: #inline
 * identifier[2].value = "5484136"
 * name[0].family = "Očkovaný"
 * name[0].given[0] = "František"
-* gender = #male
+//* gender = #male
 * birthDate = "2000-03-21"
 
 Instance: c220e36c-eb67-4fc4-9ba1-2fabc52acec6
@@ -78,7 +78,7 @@ Usage: #inline
 * manufacturer.display = "BioNTech Manufacturing GmbH"
 * lotNumber = "B1235742"
 * performer[0].actor.display = "MUDr. Aleš Procházka"
-* protocolApplied[0].targetDisease[0] = $sct#840533007
+* protocolApplied[0].targetDisease[0] = $sct#840533007 "SARS-CoV-2"
 * protocolApplied[0].doseNumberPositiveInt = 1
 * protocolApplied[0].seriesDosesPositiveInt = 2
 
@@ -90,13 +90,14 @@ Usage: #inline
 * vaccineCode = $sct#1119349007 "Vaccine product containing only Severe acute respiratory syndrome coronavirus 2 messenger ribonucleic acid"
 // * vaccineCode = $sct#333521006 - used for testing the slicing error
 * vaccineCode.text = "Comirnaty"
+* vaccineCode.text = "Comirnaty"
 * patient.reference = "urn:uuid:2b90dd2b-2dab-4c75-9bb9-a355e07401e8"
 * occurrenceDateTime = "2020-12-23"
 * location.reference = "urn:uuid:55a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd8"
 * manufacturer.display = "BioNTech Manufacturing GmbH"
 * lotNumber = "D5423452"
 * performer[0].actor.display = "MUDr. Jan Novák"
-* protocolApplied[0].targetDisease[0] = $sct#840533007
+* protocolApplied[0].targetDisease[0] = $sct#840533007 "SARS-CoV-2"
 * protocolApplied[0].doseNumberPositiveInt = 2
 * protocolApplied[0].seriesDosesPositiveInt = 2
 
