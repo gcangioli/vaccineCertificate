@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+	<id value="certificatoVaccinale"/>
+	<url value="http://hl7.eu/fhir/poc/svc/StructureDefinition/certificatoVaccinale"/>
+	<name value="certificatoVaccinale"/>
+	<title value="IT Vaccination Certificate [LM]"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<description value="Logical Model representing the Italian Vaccination Certificate&#xD;&#xA;This is a Proof of Concept."/>
+	<jurisdiction>
+		<!-- This will drive SNOMED release used -->
+		<coding>
+			<!-- This is the code for universal -->
+			<system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+			<code value="150"/>
+			<display value="Europe"/>
+			<!-- Change to this if the IG is country-specific -->
+			<!-- <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/> -->
+			<!-- <code value="001"/> -->
+		</coding>
+	</jurisdiction>
+	<fhirVersion value="4.0.1"/>
+	<mapping>
+		<identity value="fhir-ig"/>
+		<uri value="http://hl7.eu/fhir/poc/svc"/>
+		<name value="Vaccination Certificate PoC FHIR Implementation Guide"/>
+	</mapping>
+	<kind value="logical"/>
+	<abstract value="true"/>
+	<type value="certificatoVaccinale"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="certificatoVaccinale">
+			<path value="certificatoVaccinale"/>
+			<short value="IT Vaccination Certificate"/>
+			<definition value="IT Vaccination Certificate content"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element id="certificatoVaccinale.paziente">
+			<path value="certificatoVaccinale.paziente"/>
+			<short value="Dati Identificativi Del Paziente  [Person identification]"/>
+			<definition value="Dati Identificativi Del Paziente"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<!-- 	<constraint><key value="eu-svc-1"/><severity value="error"/><human value="If no Person identifier is provided then the date of birth shall be valued"/><expression value="identifier.exists() or birthDate.exists()"/></constraint> -->
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').paziente"/>
+			</mapping>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').patient"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.paziente.identificativo">
+			<path value="certificatoVaccinale.paziente.identificativo"/>
+			<short value="Identificativi Paziente [Person identifier]"/>
+			<definition value="Codice Fiscale dell'assistito (o STP / TEAM nei casi opportuni). [An identifier of the vaccinated person, according to the policies applicable in each country. It should be captured what type of identifier is used. Examples: citizen ID card or identifier within the health system/IIS/e-registry.]"/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').identifier"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.paziente.nome">
+			<path value="certificatoVaccinale.paziente.nome"/>
+			<short value="Nome Paziente [Person name (given)]"/>
+			<definition value="The legal name of the vaccinated person"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').name"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.paziente.cognome">
+			<path value="certificatoVaccinale.paziente.cognome"/>
+			<short value="Cognome Paziente [Person name  (family)]"/>
+			<definition value="The legal name of the vaccinated person"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').name"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.paziente.sesso">
+			<path value="certificatoVaccinale.paziente.sesso"/>
+			<short value="Sesso Paziente (M/F) [Sex]"/>
+			<definition value="Sesso Paziente (M/F)"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').gender"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.paziente.genereAmministrativo">
+			<path value="certificatoVaccinale.paziente.genereAmministrativo"/>
+			<short value="Genere Amministrativo [Administrative gender]"/>
+			<definition value="Genere Amministrativo (M/F)"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').gender"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.paziente.dataNascita">
+			<path value="certificatoVaccinale.paziente.dataNascita"/>
+			<short value="Data Nascita Paziente [Person date of birth]"/>
+			<definition value="Data Nascita Paziente"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').birthDate"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.paziente.luogoNascita">
+			<path value="certificatoVaccinale.paziente.luogoNascita"/>
+			<short value="Luogo Nascita Paziente [Person birthplace]"/>
+			<definition value="Luogo Nascita Paziente"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Address"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').birthDate"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.paziente.residenza">
+			<path value="certificatoVaccinale.paziente.residenza"/>
+			<short value="Indirizzo Residenza Paziente [patient official address]"/>
+			<definition value="Indirizzo Residenza Paziente"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Address"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').birthDate"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.paziente.riferimentiTelecom">
+			<path value="certificatoVaccinale.paziente.riferimentiTelecom"/>
+			<short value="Contatti per il paziente [contact detail for the patient]"/>
+			<definition value="Contatti per il paziente"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').birthDate"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.paziente.riferimentiTelecom.telefono">
+			<path value="certificatoVaccinale.paziente.riferimentiTelecom.telefono"/>
+			<short value="Contatti per il paziente: telefono [contact detail for the patient: telephone/mobile]"/>
+			<definition value="Contatti per il paziente: telefono [contact detail for the patient: telephone/mobile]"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactPoint"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').birthDate"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.paziente.riferimentiTelecom.eMail">
+			<path value="certificatoVaccinale.paziente.riferimentiTelecom.eMail"/>
+			<short value="Contatti per il paziente: eMail [contact detail for the patient: eMail]"/>
+			<definition value="Contatti per il paziente: eMail [contact detail for the patient: eMail]"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactPoint"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').birthDate"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.paziente.riferimentiTelecom.pec">
+			<path value="certificatoVaccinale.paziente.riferimentiTelecom.pec"/>
+			<short value="Contatti per il paziente: pec [contact detail for the patient: certified eMail]"/>
+			<definition value="Contatti per il paziente: pec [contact detail for the patient: certified eMail]"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactPoint"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Patient.conformsTo('http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips').birthDate"/></mapping> -->
+		</element>	
+		<element id="certificatoVaccinale.metaDati">
+			<path value="certificatoVaccinale.metaDati"/>
+			<short value="Metadati [Certificate metadata]"/>
+			<definition value="Certificate metadata"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<!-- <mapping> -->
+			<!-- <identity value="fhir-ig"/> -->
+			<!-- <map value="Observation.device.identifier"/> -->
+			<!-- </mapping> -->
+		</element>
+		<element id="certificatoVaccinale.metaDati.dataCertificato">
+			<path value="certificatoVaccinale.metaDati.dataCertificato"/>
+			<short value="Data e Ora del Certificato Vaccinale [Certificate Creation DateTime]"/>
+			<definition value="Data di creazione dell'istanza del documento."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		<element id="certificatoVaccinale.metaDati.autore">
+			<path value="certificatoVaccinale.metaDati.autore"/>
+			<short value="Dati Autore Certificato Vaccinale [Author]"/>
+			<definition value="Un certificato Vaccinale può avere uno o più autori. Autore sempre essere umano."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		<element id="certificatoVaccinale.metaDati.autore.codiceFiscale">
+			<path value="certificatoVaccinale.metaDati.autore.codiceFiscale"/>
+			<short value="Autore Certificato Vaccinale: Codice Fiscale [Author - identifier]"/>
+			<definition value="Autore Certificato Vaccinale: Codice Fiscale [Author - identifier]"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		<element id="certificatoVaccinale.metaDati.autore.nome">
+			<path value="certificatoVaccinale.metaDati.autore.nome"/>
+			<short value="Autore Certificato Vaccinale: Nome [Author - given name]"/>
+			<definition value="Autore Certificato Vaccinale: Nome [Author - given name]"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		<element id="certificatoVaccinale.metaDati.autore.cognome">
+			<path value="certificatoVaccinale.metaDati.autore.cognome"/>
+			<short value="Autore Certificato Vaccinale: Cognome [Author - Family Name]"/>
+			<definition value="Autore Certificato Vaccinale: Cognome [Author - Family Name]"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		<element id="certificatoVaccinale.metaDati.firmatario">
+			<path value="certificatoVaccinale.metaDati.firmatario"/>
+			<short value="Dati Firmatario della Certificato Vaccinale [Legal Authenticator]"/>
+			<definition value="Dati Firmatario del Certificato Vaccinale."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		<element id="certificatoVaccinale.metaDati.firmatario.codiceFiscale">
+			<path value="certificatoVaccinale.metaDati.firmatario.codiceFiscale"/>
+			<short value="Dati Firmatario della Certificato Vaccinale: Codice Fiscale [Legal Authenticator - identifier]"/>
+			<definition value="Dati Firmatario della Certificato Vaccinale: Codice Fiscale [Legal Authenticator - identifier]"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		<element id="certificatoVaccinale.metaDati.firmatario.nome">
+			<path value="certificatoVaccinale.metaDati.firmatario.nome"/>
+			<short value="Dati Firmatario della Certificato Vaccinale: Nome [Legal Authenticator - given name]"/>
+			<definition value="Dati Firmatario della Certificato Vaccinale: Nome [Legal Authenticator - given name]"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		<element id="certificatoVaccinale.metaDati.firmatario.cognome">
+			<path value="certificatoVaccinale.metaDati.firmatario.cognome"/>
+			<short value="Dati Firmatario della Certificato Vaccinale: Cognome [Legal Authenticator - Family Name]"/>
+			<definition value="Dati Firmatario della Certificato Vaccinale: Cognome [Legal Authenticator - Family Name]"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		<element id="certificatoVaccinale.metaDati.firmatario.dataOraFirma">
+			<path value="certificatoVaccinale.metaDati.firmatario.dataOraFirma"/>
+			<short value="Data E Ora Di Firma [Signature Time Stamp]"/>
+			<definition value="Data E Ora Di Firma [Signature Time Stamp]"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		<element id="certificatoVaccinale.metaDati.datiStruttura">
+			<path value="certificatoVaccinale.metaDati.datiStruttura"/>
+			<short value="Dati Struttura [Organizations involved]"/>
+			<definition value="Dati Struttura [Organizations involved]"/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		
+		<element id="certificatoVaccinale.metaDati.datiStruttura.aziendaSanitaria">
+			<path value="certificatoVaccinale.metaDati.datiStruttura.aziendaSanitaria"/>
+			<short value="Azienda Sanitaria [Sub-regional Health Organization]"/>
+			<definition value="Azienda Sanitaria [Sub-regional Health Organization]"/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="Organization"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		
+		<element id="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione">
+			<path value="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione"/>
+			<short value="Ambulatorio Vaccinale oppure Unità Operativa oppure Pronto Soccorso oppure Centro medicina dei viaggi oppure autorità portuale oppure MMG oppure PLS [Administering Center]"/>
+			<definition value="Ambulatorio Vaccinale oppure Unità Operativa oppure Pronto Soccorso oppure Centro medicina dei viaggi oppure autorità portuale oppure MMG oppure PLS [Administering Center]"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		
+			<element id="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.identificativo">
+			<path value="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.identificativo"/>
+			<short value="Identificativo struttura [Administering Center Identifier]"/>
+			<definition value="Identificativo struttura [Administering Center Identifier]"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		
+					<element id="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.responsabile">
+			<path value="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.responsabile"/>
+			<short value="Direttore/Responsabile struttura [Administering Center - Responsible]"/>
+			<definition value="Direttore/Responsabile struttura [Administering Center - Responsible]"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Person"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		
+					<element id="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.nome">
+			<path value="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.nome"/>
+			<short value="Denominazione struttura [Administering Center - Name]"/>
+			<definition value="Denominazione struttura [Administering Center - Name]"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		
+		<element id="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.indirizzo">
+			<path value="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.indirizzo"/>
+			<short value="Indirizzo struttura [Administering Center - Address]"/>
+			<definition value="Indirizzo struttura [Administering Center - Address]"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Address"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		
+			<element id="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.contatti">
+			<path value="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.contatti"/>
+			<short value="Recapito Segreteria struttura [Administering Center - Telecom Contacts]"/>
+			<definition value="Recapito Segreteria struttura [Administering Center - Telecom Contacts]"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		
+		<element id="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.contatti.telefono">
+			<path value="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.contatti.telefono"/>
+			<short value="Recapito Segreteria struttura: telefono [Administering Center - Telephone ]"/>
+			<definition value="Recapito Segreteria struttura: telefono [Administering Center - Telephone]"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactPoint"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>	
+			
+		<element id="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.contatti.eMail">
+			<path value="certificatoVaccinale.metaDati.datiStruttura.unitaVaccinazione.contatti.eMail"/>
+			<short value="Recapito Segreteria struttura: eMail [Administering Center - eMail ]"/>
+			<definition value="Recapito Segreteria struttura: eMail [Administering Center - eMail]"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactPoint"/>
+			</type>
+			<!-- 			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping> -->
+		</element>
+		
+
+		
+		<!-- 	<element id="certificatoVaccinale.metaDati.issuer">
+			<path value="certificatoVaccinale.metaDati.issuer"/>
+			<short value="Certificate Issuer"/>
+			<definition value="Entity that has issued the certificate (allowing to check the certificate)"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').attester.party"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.metaDati.certificateId">
+			<path value="certificatoVaccinale.metaDati.certificateId"/>
+			<short value="Certificate identifier"/>
+			<definition value="Unique identifier of the certificate (UVCI), to be printed (human readable) into the certificate; the unique identifier can be included in the IIS"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Build.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Build-svc').identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Composition-svc').identifier"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.metaDati.startValidity">
+			<path value="certificatoVaccinale.metaDati.startValidity"/>
+			<short value="Certificate valid from"/>
+			<definition value="Certificate valid from (required if known)"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+				<code value="Period"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Composition.attester.time"/>
+			</mapping>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Build.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Build-svc').identifier.period.start"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.metaDati.endValidity">
+			<path value="certificatoVaccinale.metaDati.endValidity"/>
+			<short value="Certificate valid until"/>
+			<definition value="Certificate valid until (validity can differ from the expected immunisation period)"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Build.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Build-svc').identifier.period.end"/>
+			</mapping>
+		</element> -->
+		<element id="certificatoVaccinale.datiVaccinazione">
+			<path value="certificatoVaccinale.datiVaccinazione"/>
+			<short value="Vaccinazione [Vaccination / prophylaxis information]"/>
+			<definition value="Vaccination / prophylaxis information"/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc')"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.vaccinazione">
+			<path value="certificatoVaccinale.datiVaccinazione.vaccinazione"/>
+			<short value="Vaccinazione (Disease or agent targeted)"/>
+			<definition value="Malattia/e per la quale è stata effettuata la vaccinazione (caso1) oppure per la quale viene documentata l’esenzione (caso2). [Disease or agent that the vaccination provides protection against]"/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').protocolApplied.targetDisease"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione"/>
+			<short value="Somministrazione Vaccino [Vaccine Administration]"/>
+			<definition value="Somministrazione Vaccino [Vaccine Administration]"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc')"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.tipoVaccino">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.tipoVaccino"/>
+			<short value="Formulazione Vaccino [Vaccine or prophylaxis]"/>
+			<definition value="Mono-componente o combinazione (bambini-adulti) somministrata, ad es. HBV,DTaP-HBV-IPV-HIB"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').vaccineCode"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.nomeCommercialeProdotto">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.nomeCommercialeProdotto"/>
+			<short value="Nome commerciale Vaccino [Vaccine brand name]"/>
+			<definition value="Medicinal product name  Example:  COMIRNATY concentrate for dispersion for injection   "/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').vaccineCode.text"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.codiceAicProdotto">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.codiceAicProdotto"/>
+			<short value="Codice AIC del vaccino [National Product code]"/>
+			<definition value="Autorizzazione all’Immissione in Commercio del vaccino somministrato."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').vaccineCode"/>
+			</mapping>
+		</element>
+		<!-- 	<element id="certificatoVaccinale.datiVaccinazione.somministrazione.vaccineMarketingLegal AuthenticatorizationHolder"><path value="certificatoVaccinale.datiVaccinazione.somministrazione.vaccineMarketingLegal AuthenticatorizationHolder"/><short value="Marketing Legal Authenticatorization Holder"/><definition value="Marketing Legal Authenticatorisation Holder  Example:  Pfizer BioNTech"/><min value="0"/><max value="*"/><type><code value="string"/></type><mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').manufacturer"/></mapping></element> -->
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.doseSomministrata">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.doseSomministrata"/>
+			<short value="Dose somministrata  [Number in a series of vaccinations]"/>
+			<definition value="Valore numerico progressivo che identifica la dose somministrata: es. prima, seconda, terza dose del ciclo primario dell’esavalente, quarta dose di DTaP-IPV (=prima dose di richiamo), prima e seconda dose di anti-morbillo, parotite, rosolia e varicella."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="integer"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').protocolApplied.doseNumber[x]"/>
+			</mapping>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').protocolApplied.seriesDoses[x]"/></mapping> -->
+		</element>
+			<element id="certificatoVaccinale.datiVaccinazione.somministrazione.dataSomministrazione">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.dataSomministrazione"/>
+			<short value="Data e ora di somministrazione [Date of vaccination]"/>
+			<definition value="Data e ora in cui è stato somministrato il vaccino"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').occurrenceDatetime"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.vaccineBatchNumber">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.vaccineBatchNumber"/>
+			<short value="Batch/lot number"/>
+			<definition value="A distinctive combination of numbers and/or letters which specifically identifies a batch"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').lotNumber"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.scadenzaVaccino">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.scadenzaVaccino"/>
+			<short value="Data scadenza del vaccino [expiration date]"/>
+			<definition value="Data scadenza del vaccino [expiration date]"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').lotNumber"/>
+			</mapping>
+		</element>		
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.sedeAnatomica">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.sedeAnatomica"/>
+			<short value="Sede anatomica di somministrazione [Anatomic Site]"/>
+			<definition value="Indica la sede anatomica di somministrazione, per es. deltoide, faccia antero-laterale del quadricipite della coscia, altro, con dettaglio se dx o sx."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').occurrenceDatetime"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.viaSomministrazione">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.viaSomministrazione"/>
+			<short value="Via di somministrazione [Route of Administration]"/>
+			<definition value="Indica la via di somministrazione, per es. orale, intramuscolo, sottocute, intradermica, altro."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').occurrenceDatetime"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.categoriaRischio">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.categoriaRischio"/>
+			<short value="Categoria a rischio [Risk category]"/>
+			<definition value="Indica la categoria per la quale viene raccomandata la vaccinazione (es. esposizione lavorativa, stile di vita, viaggi), coerente con le categorie previste con il PNPV vigente."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').occurrenceDatetime"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.condizioniSanitarie">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.condizioniSanitarie"/>
+			<short value="Condizioni sanitarie a rischio [Patient Conditions]"/>
+			<definition value="Indica le condizioni sanitarie del soggetto da vaccinare per cui è raccomandata la vaccinazione (es. diabete, HIV, emodializzato), coerenti con le categorie previste con il PNPV vigente."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').occurrenceDatetime"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.immunita">
+			<!-- NON CHIARO -->
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.immunita"/>
+			<short value="Malattia con presunta immunità [Immunity]"/>
+			<definition value="Campo atto ad indicare la presenza di una malattia con presunta immunità."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').occurrenceDatetime"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.copertura">
+			<!-- NON CHIARO -->
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.copertura"/>
+			<short value="Periodo di copertura [Coverage]"/>
+			<definition value="Indica il periodo di copertura del vaccino somministrato."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').occurrenceDatetime"/></mapping> -->
+		</element>
+	
+		<!-- 	<element id="certificatoVaccinale.datiVaccinazione.somministrazione.administeringCentre"><path value="certificatoVaccinale.datiVaccinazione.somministrazione.administeringCentre"/><short value="Administering centre"/><definition value="Name/code of administering centre or a health Legal Authenticatority responsible for the vaccination event"/><min value="0"/><max value="*"/><type><code value="Organization"/></type><mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').performer"/></mapping><mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').location"/></mapping></element><element id="certificatoVaccinale.datiVaccinazione.somministrazione.healthProfessionalIdentification"><path value="certificatoVaccinale.datiVaccinazione.somministrazione.healthProfessionalIdentification"/><short value="Health Professional identification"/><definition value="Name or health professional code responsible for administering the vaccine or prophylaxis"/><min value="0"/><max value="*"/><type><code value="Practitioner"/></type><mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').performer"/></mapping></element><element id="certificatoVaccinale.datiVaccinazione.somministrazione.countryOfVaccination"><path value="certificatoVaccinale.datiVaccinazione.somministrazione.countryOfVaccination"/><short value="Country of vaccination"/><definition value="The country in which the individual has been vaccinated"/><min value="0"/><max value="*"/><type><code value="CodeableConcept"/></type><mapping><identity value="fhir-ig"/><map value="Immunization.conformsTo('http://hl7.eu/fhir/poc/svc/StructureDefinition/Immunization-svc').location.address.country"/></mapping></element> -->
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.prossimoAppuntamento">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.prossimoAppuntamento"/>
+			<short value="Data prossimo appuntamento [Next vaccination date]"/>
+			<definition value="Data e ora programmata per la prossima vaccinazione. Date on which the next vaccination should be administered"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="ImmunizationRecommendation.recommendation.where(dateCriterion='http://loinc.org#30980-7').value"/>
+			</mapping>
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.somministrazione.reazioni">
+			<path value="certificatoVaccinale.datiVaccinazione.somministrazione.reazioni"/>
+			<short value="Reazioni avverse [Adverse reaction]"/>
+			<definition value="Data e ora programmata per la prossima vaccinazione. Date on which the next vaccination should be administered"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<mapping>
+				<identity value="fhir-ig"/>
+				<map value="ImmunizationRecommendation.recommendation.where(dateCriterion='http://loinc.org#30980-7').value"/>
+			</mapping>
+		</element>
+		<!--- DATI ESONERO -->
+		<element id="certificatoVaccinale.datiVaccinazione.esonero">
+			<path value="certificatoVaccinale.datiVaccinazione.esonero"/>
+			<short value="Esonero/ omissione o differimento [vaccination not administered]"/>
+			<definition value="Esonero/ omissione o differimento [vaccination not administered]"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="ImmunizationRecommendation.recommendation.where(dateCriterion='http://loinc.org#30980-7').value"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.esonero.attestazione">
+			<path value="certificatoVaccinale.datiVaccinazione.esonero.attestazione"/>
+			<short value="Attestazione di esonero/ omissione o differimento [vaccine not given]"/>
+			<definition value="Indica l’esonero, l’omissione o il differimento della vaccinazione previa attestazione ; nel caso in cui questo campo sia valorizzato, i campi relativi al vaccino non saranno impostati (ad eccezione della Data di somministrazione/registrazione esonero, che corrisponderà alla data di registrazione dell’attestazione nell’anagrafe)."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="ImmunizationRecommendation.recommendation.where(dateCriterion='http://loinc.org#30980-7').value"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.esonero.dataRegistrazione">
+			<path value="certificatoVaccinale.datiVaccinazione.esonero.dataRegistrazione"/>
+			<short value="Data e ora di registrazione esonero/omissione o differimento [recording date]"/>
+			<definition value="Data e ora in cui viene registrata l’attestazione di esonero/ omissione o differimento"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="ImmunizationRecommendation.recommendation.where(dateCriterion='http://loinc.org#30980-7').value"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.esonero.motivazione">
+			<path value="certificatoVaccinale.datiVaccinazione.esonero.motivazione"/>
+			<short value="Motivazione per esonero/omissione o differimento [reason for not giving]"/>
+			<definition value="Indica le motivazioni attestate per l’esonero / omissione o differimento: es. immunizzazione a seguito di malattia naturale, controindicazioni temporanee o permanenti (in coerenza con le indicazioni fornite dal Ministero della Salute e dall’Istituto Superiore di Sanità nella Guida alle controindicazioni alle vaccinazioni)."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="ImmunizationRecommendation.recommendation.where(dateCriterion='http://loinc.org#30980-7').value"/></mapping> -->
+		</element>
+		<element id="certificatoVaccinale.datiVaccinazione.esonero.fineValidita">
+			<path value="certificatoVaccinale.datiVaccinazione.esonero.fineValidita"/>
+			<short value="Data scadenza controindicazione temporanea [exception valid until]"/>
+			<definition value="Indica la data di scadenza della controindicazione, quando attestata come temporanea."/>
+			<!-- Richiesto se temporaneo-->
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<!-- 			<mapping><identity value="fhir-ig"/><map value="ImmunizationRecommendation.recommendation.where(dateCriterion='http://loinc.org#30980-7').value"/></mapping> -->
+		</element>
+	</differential>
+</StructureDefinition>

@@ -130,6 +130,7 @@ Usage: #inline
 * patient.reference = "urn:uuid:45598100-e07c-4c4a-a54e-561459dc4dea"
 * date = "2020-12-02"
 * authority.reference = "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7"
+* recommendation[0].vaccineCode.coding[0] = $sct#1119349007 "Vaccine product containing only Severe acute respiratory syndrome coronavirus 2 messenger ribonucleic acid"
 * recommendation[0].forecastStatus = $Immunization-recommendation-status#contraindicated //  "The patient is contraindicated for futher doses."
 * recommendation[0].forecastReason = $sct#420134006 "Propensity to adverse reaction"  //  "The patient is contraindicated for futher doses."
 * recommendation[0].dateCriterion[0].code = $loinc#30980-7 "Date vaccine due"

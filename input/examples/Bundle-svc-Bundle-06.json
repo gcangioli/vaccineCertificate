@@ -203,6 +203,17 @@
         },
         "recommendation": [
           {
+            "vaccineCode": [
+              {
+                "coding": [
+                  {
+                    "code": "1119349007",
+                    "system": "http://snomed.info/sct",
+                    "display": "Vaccine product containing only Severe acute respiratory syndrome coronavirus 2 messenger ribonucleic acid"
+                  }
+                ]
+              }
+            ],
             "forecastStatus": {
               "coding": [
                 {

@@ -18,8 +18,8 @@
         "resourceType": "Composition",
         "id": "30551ce1-5a28-4356-b684-1e639094ad4d",
         "identifier": {
-          "system": "urn:oid:2.16.724.4.8.10.200.10",
-          "value": "3f69e0a5-2177-4540-baab-7a5d0877428f"
+          "system": "urn:ietf:rfc:3986",
+          "value": "urn:uuid:3f69e0a5-2177-4540-baab-7a5d0877428f"
         },
         "status": "final",
         "type": {
@@ -125,7 +125,6 @@
             ]
           }
         ],
-        "gender": "male",
         "birthDate": "2000-03-21"
       }
     },
@@ -170,7 +169,8 @@
                 "coding": [
                   {
                     "code": "840533007",
-                    "system": "http://snomed.info/sct"
+                    "system": "http://snomed.info/sct",
+                    "display": "SARS-CoV-2"
                   }
                 ]
               }
@@ -222,7 +222,8 @@
                 "coding": [
                   {
                     "code": "840533007",
-                    "system": "http://snomed.info/sct"
+                    "system": "http://snomed.info/sct",
+                    "display": "SARS-CoV-2"
                   }
                 ]
               }

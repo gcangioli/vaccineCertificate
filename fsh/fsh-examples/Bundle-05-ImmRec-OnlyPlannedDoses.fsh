@@ -86,14 +86,15 @@ Usage: #inline
 * date = "2021-02-05"
 // * authority.reference = "urn:uuid:b66c1b23-21e9-4bd0-9cd7-edd806c126de"
 * recommendation[0].vaccineCode.coding[0] = $sct#1119349007 "Vaccine product containing only Severe acute respiratory syndrome coronavirus 2 messenger ribonucleic acid"
-
 * recommendation[0].forecastStatus = http://terminology.hl7.org/CodeSystem/immunization-recommendation-status#due
 * recommendation[0].dateCriterion[0].code = $loinc#30980-7 	"Date vaccine due"
 * recommendation[0].dateCriterion[0].value = "2021-01-10"
 * recommendation[0].doseNumberPositiveInt = 1
 * recommendation[0].seriesDosesPositiveInt = 2
-* recommendation[1].forecastStatus = http://terminology.hl7.org/CodeSystem/immunization-recommendation-status#contraindicated
-* recommendation[1].forecastReason = http://terminology.hl7.org/CodeSystem/v3-ActReason#MEDPREC	"medical precaution"
+// * recommendation[1].forecastStatus = http://terminology.hl7.org/CodeSystem/immunization-recommendation-status#contraindicated
+// * recommendation[1].forecastReason = http://terminology.hl7.org/CodeSystem/v3-ActReason#MEDPREC	"medical precaution"
+* recommendation[1].vaccineCode.coding[0] = $sct#1119349007 "Vaccine product containing only Severe acute respiratory syndrome coronavirus 2 messenger ribonucleic acid"
+* recommendation[1].forecastStatus = http://terminology.hl7.org/CodeSystem/immunization-recommendation-status#due
 * recommendation[1].dateCriterion[0].code = $loinc#30980-7 	"Date vaccine due"
 * recommendation[1].dateCriterion[0].value = "2021-02-07"
 * recommendation[1].doseNumberPositiveInt = 2
