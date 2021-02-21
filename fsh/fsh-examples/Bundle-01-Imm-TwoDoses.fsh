@@ -29,7 +29,7 @@ InstanceOf: Composition
 Usage: #inline
 * id = "30551ce1-5a28-4356-b684-1e639094ad4d"
 * identifier.system = "urn:ietf:rfc:3986"
-* identifier.value = "3f69e0a5-2177-4540-baab-7a5d0877428f"
+* identifier.value = "urn:uuid:3f69e0a5-2177-4540-baab-7a5d0877428f"
 * status = #final
 * type = $loinc#82593-5 "Immunization summary report"
 * subject.reference = "urn:uuid:2b90dd2b-2dab-4c75-9bb9-a355e07401e8"
